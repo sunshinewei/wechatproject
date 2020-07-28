@@ -4,31 +4,43 @@ const app = getApp()
 
 Page({
 
-  subway:function(){
-    let plugin = requirePlugin("subway");
-    let key = '生活工具-小程序';//使用在腾讯位置服务申请的key;
-    let referer = '生活工具'; //调用插件的app的名称
-    wx.navigateTo({
-        url: 'plugin://subway/index?key=' + key + '&referer=' + referer
-      });
-    },
+ add(){
+  let plugin = requirePlugin("subway");
+  let key = 'XVOBZ-IQ53D-62A4O-HPXHA-6BUQ7-EBB6P';//使用在腾讯位置服务申请的key;
+  let referer = '生活工具'; //调用插件的app的名称
+  wx.navigateTo({
+      url: 'plugin://subway/index?key=' + key + '&referer=' + referer
+    });
+ },
 
+ line(){
+  let plugin = requirePlugin('routePlan');
+  let key = 'XVOBZ-IQ53D-62A4O-HPXHA-6BUQ7-EBB6P';//使用在腾讯位置服务申请的key;
+  let referer = '生活工具'; //调用插件的app的名称
+  let endPoint = JSON.stringify({  //终点
+      'name': '吉野家(北京西站北口店)',
+      'latitude': 39.89631551,
+      'longitude': 116.323459711
+  });
+  wx.navigateTo({
+      url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+  });
+ },
 
-  data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
+ addPoint(){
+  let key = 'XVOBZ-IQ53D-62A4O-HPXHA-6BUQ7-EBB6P';//使用在腾讯位置服务申请的key;
+  let referer = '生活工具'; //调用插件的app的名称
+  const location = JSON.stringify({
+    latitude: 39.89631551,
+    longitude: 116.323459711
+  });
+  const category = '生活服务,娱乐休闲';
+   
+  wx.navigateTo({
+    url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&location=' + location + '&category=' + category
+  });
+ }
 
-  }
 
   
 
@@ -69,5 +81,5 @@ Page({
   //   })
   // }
 
-  
+
 })

@@ -1,4 +1,6 @@
 <!--index.wxml-->
-<view class="container">
-  
+<view>
+ <button bindtap="add"> 地铁图 </button>
+ <button bindtap="line"> 路线规划 </button>
+ <button bindtap="addPoint"> 插点 </button>
 </view>

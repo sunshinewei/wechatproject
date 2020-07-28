@@ -2,16 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/index/two",
-    "pages/plugin/document",
-    "pages/plugin/location-picker",
-    "pages/plugin/route-plan",
-    "pages/plugin/subway",
-    "pages/webservice/policy-list",
-    "pages/webservice/reverseGeocoder-form",
-    "pages/webservice/reverseGeocoder-result",
-    "pages/webservice/search-form",
-    "pages/webservice/search-result"
+    "pages/index/two"
   ],
   "tabBar": {
     "color": "#8a8a8a",
@@ -36,8 +27,8 @@
     "navigationBarTitleText": "",
     "backgroundColor": "#d81e06",
     "backgroundTextStyle": "light",
-    "enablePullDownRefresh": true
-  },
+    "enablePullDownRefresh": false
+    },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "plugins": {
