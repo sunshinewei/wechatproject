@@ -4,6 +4,11 @@ const app = getApp()
 
 Page({
 
+  data:{
+   latitude:0,
+    longitude:0
+  },
+
  add(){
   let plugin = requirePlugin("subway");
   let key = 'XVOBZ-IQ53D-62A4O-HPXHA-6BUQ7-EBB6P';//使用在腾讯位置服务申请的key;
@@ -14,6 +19,10 @@ Page({
  },
 
  line(){
+
+  wx.getLocation({
+    type:'wgs84'
+  });
   let plugin = requirePlugin('routePlan');
   let key = 'XVOBZ-IQ53D-62A4O-HPXHA-6BUQ7-EBB6P';//使用在腾讯位置服务申请的key;
   let referer = '生活工具'; //调用插件的app的名称
@@ -30,15 +39,21 @@ Page({
  addPoint(){
   let key = 'XVOBZ-IQ53D-62A4O-HPXHA-6BUQ7-EBB6P';//使用在腾讯位置服务申请的key;
   let referer = '生活工具'; //调用插件的app的名称
-  const location = JSON.stringify({
-    latitude: 39.89631551,
-    longitude: 116.323459711
-  });
-  const category = '生活服务,娱乐休闲';
-   
-  wx.navigateTo({
-    url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&location=' + location + '&category=' + category
-  });
+
+  wx.getLocation({
+    type:'wgs84',
+    success(res){
+      const location = JSON.stringify({
+        latitude: res.latitude,
+        longitude: res.longitude
+      });
+      const category = '生活服务,娱乐休闲';  
+      wx.navigateTo({
+        url: 'plugin://chooseLocation/index?key=' + key + '&referer=' + referer + '&location=' + location + '&category=' + category
+      });
+    }
+  })
+  
  }
 
 
