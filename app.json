@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/logs/logs",
-    "pages/index/two"
+    "pages/index/two",
+    "pages/drivingtest/drivingtest"
   ],
   "tabBar": {
     "color": "#8a8a8a",

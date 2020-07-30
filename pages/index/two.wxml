@@ -1,1 +1,5 @@
-<view>ceshi</view>
+<view>
+
+  <button bindtap="carTest">驾照考试测试题</button>
+
+</view>
