@@ -1,14 +1,13 @@
 <!--pages/drivingtest/drivingtest.wxml-->
-<view wx:for="{{useData}}" wx-for-index="index" wx-for-item="item">
-  <text selectable="true">{{item.question}}</text>
-  <image style="width: 200px; height: 200px; background-color: #eeeeee;" src="{{item.url}}"></image>
-  <radio-group>
-
+<view wx:for="{{useData}}" wx-for-index="index" wx-for-item="item" class="container">
+  <text selectable="true" class="titlefont">{{item.question}}</text>
+  <image class="imagestyle" src="{{item.url}}"></image>
+  <radio-group class="answer">
     <radio>{{item.item1}}</radio>
     <radio>{{item.item2}}</radio>
     <radio>{{item.item3}}</radio>
     <radio>{{item.item4}}</radio>
   </radio-group>
-  
 
+  <button bindtap="showDialog" data-name="A">下一题</button>
 </view>

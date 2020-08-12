@@ -4,7 +4,10 @@ Page({
   /**
    * 页面的初始数据
    */
+  
   data: {
+
+      answer:"A",
       useData:[{id: "1", question: "这个标志是何含义？", answer: "4", item1: "小型车车道", item2: "小型车专用车道"}]
   },
 
@@ -13,21 +16,35 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
-    wx.request({
-      url: 'https://v.juhe.cn/jztk/query', //仅为示例，并非真实的接口地址
-      data: {
-        key: '5412b799275a438f720947c23c99df88',
-        subject: '1',
-        model: 'c1',
-        testType: 'rand',
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success (res) {
-        console.log(res.data);
-        // this.useData=res.data;
-        that.setData({useData:res.data.result})
+    // wx.request({
+    //   url: 'https://v.juhe.cn/jztk/query', //仅为示例，并非真实的接口地址
+    //   data: {
+    //     key: '5412b799275a438f720947c23c99df88',
+    //     subject: '1',
+    //     model: 'c1',
+    //     testType: 'rand',
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success (res) {
+    //     console.log(res.data);
+    //     // this.useData=res.data;
+    //     that.setData({useData:res.data.result})
+    //   }
+    // })
+  },
+
+  showDialog:function(param){
+    wx.showModal({
+      title:'正确答案',
+      content:param.currentTarget.dataset.name,
+      success(res){
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
       }
     })
   },
